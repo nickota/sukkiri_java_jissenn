@@ -1,10 +1,15 @@
 public class Main {
     public static void main(String[] args) {
-        StringBuilder sb = new StringBuilder();
-        for (int i = 0; i < 100; i++){
-            sb.append(i + 1).append(",");
+        String folder = "c:¥user¥";
+        String file = "readme.txt";
+    
+        System.out.println(concatPath(folder, file));
+    }
+
+    public static String concatPath(String folder, String file){
+        if(!folder.endsWith("¥")){
+            folder += "¥";
         }
-        String s = sb.toString();
-        String[] a = s.split(",");
+        return folder + file;
     }
 }
