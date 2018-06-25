@@ -1,15 +1,11 @@
+import java.util.Date;
+
 public class Main {
     public static void main(String[] args) {
-        String folder = "c:¥user¥";
-        String file = "readme.txt";
-    
-        System.out.println(concatPath(folder, file));
-    }
-
-    public static String concatPath(String folder, String file){
-        if(!folder.endsWith("¥")){
-            folder += "¥";
-        }
-        return folder + file;
+        Date now = new Date();
+        System.out.println(now);
+        System.out.println(now.getTime());
+        Date past = new Date(1316622225935L);
+        System.out.println(past);
     }
 }
