@@ -1,13 +1,21 @@
-import java.time.*;
+import java.time.*
+import java.time.format.*;
 
 public class Main {
     public static void main(String[] args) {
-        //LocalDateTimeの生成方法
-        LocalDateTime l1 = new LocalDateTime.now();
-        LocalDateTime l2 = new LocalDateTime.of(2014, 1, 1, 9, 5, 0, 0);
+        DateTimeFormatter f = DateTimeFormatter.ofPattern("yyyy/MM/dd");
+        LocalDate d = LacalDate.parse("2011/08/21",f);
+
+        //100日後を計算する
+        d = d.plusDays(1000);
+        String str = d.format(f);
+        System.out.println("1000日後は"+str);
         
-        //LocalDateTimeとZoneDateTimeの相互変換
-        ZoneDateTime z1 = l2.atZone(ZoneId.of("Europe/London"));
-        LocalDateTime l3 = z1.toLocalDateTime();
+        //現在日付との比較
+        LocalDate now = LocalDate.now()
+        
+        if(now.isAfter(d)){
+            System.out.println("nowはdより新しい");
+        }
     }
 }
