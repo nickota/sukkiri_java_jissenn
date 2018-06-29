@@ -3,19 +3,14 @@ import java.time.format.*;
 
 public class Main {
     public static void main(String[] args) {
-        DateTimeFormatter f = DateTimeFormatter.ofPattern("yyyy/MM/dd");
-        LocalDate d = LacalDate.parse("2011/08/21",f);
-
-        //100日後を計算する
-        d = d.plusDays(1000);
-        String str = d.format(f);
-        System.out.println("1000日後は"+str);
+        LocalDate ld1 = LocalDate.of(2012,1,1);
+        LocalDate ld2 = LocalDate.of(2012,1,4);
         
-        //現在日付との比較
-        LocalDate now = LocalDate.now()
+        //三日間を表すPeriodを２通りの方法で実装
+        Period p1 = Period.ofDays(ld1, ld2);
+        Period p2 = Period.between(ld1, ld2);
         
-        if(now.isAfter(d)){
-            System.out.println("nowはdより新しい");
-        }
+        //ld2の三日後
+        LocalDate ld3 = ld2.plus(p2)
     }
 }
