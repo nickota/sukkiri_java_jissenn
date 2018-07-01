@@ -1,11 +1,13 @@
-import java.time.*;
-import java.time.format.*;
+import java.util.ArrayList;
 
 public class Main {
     public static void main(String[] args) {
-       LocalDate now  = new LocalDate.now();
-       LocalDate future = now.plusDays(100);
-       DateTimeFormatter f = DateTimeFormatter.ofPattern("西暦yyyy年MM月dd日");
-       System.out.println(future.format(f));
+       ArrayList<Integer> points = new ArrayList<Integer>();
+       points.add(10);
+       points.add(20);
+       
+       for(int i: points){
+           System.out.println(i);
+       }
     }
 }
