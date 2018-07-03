@@ -1,16 +1,14 @@
-import java.util.*;
-
 public class Main{
     public static void main(String[] args){
-        Map<String, Integer> prefs = new HashMap<String, Integer>();
-        prefs.put("京都府",255);
-        prefs.put("東京都",1261);
+        Hero hero1 = new Hero("斎藤");
+        Hero hero2 = new Hero("鈴木");
         
-        int tokyo = prefs.get("京都府");
-        System.out.println(tokyo);
+        ArrayList<Hero> heroes = new ArrayList<Hero>();
+        heroes.add(hero1);
+        heroes.add(hero2);
         
-        prefs.remove("東京都");
-        prefs.put("熊本県", 200);
-        System.out.println(prefs.get("熊本県"));
+        for(Hero hero:heroes){
+            System.out.println(hero.getName());
+        }
     }
 }
