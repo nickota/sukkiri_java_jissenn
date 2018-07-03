@@ -3,12 +3,14 @@ public class Main{
         Hero hero1 = new Hero("斎藤");
         Hero hero2 = new Hero("鈴木");
         
-        ArrayList<Hero> heroes = new ArrayList<Hero>();
-        heroes.add(hero1);
-        heroes.add(hero2);
+        Map<Hero, Integer> heroes = new HashMap<Hero, Integer>();
+        heroes.put(hero1, 3);
+        heroes.put(hero2, 7);
         
-        for(Hero hero:heroes){
-            System.out.println(hero.getName());
+        for(Hero key : heroes.keySet()){
+            int value = heroes.get(key);
+            System.out.println(key.getName() + ":" + value);
+            
         }
     }
 }
