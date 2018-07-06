@@ -9,6 +9,6 @@ public class Main {
         //subメソッドの処理ロジックを変数funcに代入する
         IntBinaryOperator func = Main::sub;
         int a = func.applyAsInt(5, 3);
-        System.out.println(a);
+        System.out.println(a );
     }
 }
