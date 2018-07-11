@@ -1,10 +1,10 @@
-import org.apache.commons.lang3.builder.*;
+import org.apache.commons.logging.*;
 
-public class Bank{
-    String name;
-    Strng address;
-    
-    public boolean equals(Object o){
-        return EqualsBuilder.reflectionEquals(this, o); 
+public class Main {
+    public static void main(String[] args){
+        Log logger = LogFactory.getLog(Main.class);
+        if(args.length != 2){
+            logger.error("起動引数の数が異常：" + args.length);
+        }
     }
 }
