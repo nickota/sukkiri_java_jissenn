@@ -1,19 +1,30 @@
-import java.io.*;
-import java.net.*;
-
-public class Main{
-    public static void main(String[] args) throws IOException{
-        try(URL url = new URL("http://dokojava.jp");){
-            InputStream is = url.openStream();
-            InputStreamReader isr = new InputStreamReader(is);
-            int i = isr.read();
-            while(i != -1){
-                System.out.println((char) i);
-                i = isr.read();
-            }
-        }catch(IOException e){
-            System.out.println("エラーだよ");
-        }
-        
+import java.sql.*;
+    
+    //STEP 0 : 事前準備(JARの配置を含む)
+    try {
+        //これとgetConnectionでDBに接続できるようになる
+        Class.forName("org.h2.Driver");
+    }catch(ClassNotFoundException e){
+        e.printStackTrace();
     }
-}
+    
+    Connection con = null;
+    try{
+        //STEP 1 : データベースの接続
+        con = DriverManager.getConnection("jdbc:h2:~/rpgdb"); //JDBC URLを指定している
+        //STEP 2 : SQLの送信処理
+        /*
+        メインのDB操作
+        */
+    }catch(SQLException e){
+        e.printStackTrace();
+    }finally{
+        //STEP 3 : データベース接続の切断
+        if(con != null){
+            try{
+                con.close();
+            }catch(SQLException e){
+                e.printStackTrace();
+            }
+        }
+    }
