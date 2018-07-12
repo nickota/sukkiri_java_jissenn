@@ -1,12 +1,19 @@
 import java.io.*;
+import java.net.*;
 
 public class Main{
     public static void main(String[] args) throws IOException{
-        try(FileWriter fw = new FileWriter("rpgsave.dat");){
-            fw.write('A');
-            fw.flush();  //実際に動作を実行するflushを忘れない
+        try(URL url = new URL("http://dokojava.jp");){
+            InputStream is = url.openStream();
+            InputStreamReader isr = new InputStreamReader(is);
+            int i = isr.read();
+            while(i != -1){
+                System.out.println((char) i);
+                i = isr.read();
+            }
         }catch(IOException e){
-            System.out.println("書き込みエラー");
+            System.out.println("エラーだよ");
         }
+        
     }
 }
