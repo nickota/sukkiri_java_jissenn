@@ -2,16 +2,11 @@ import java.io.*;
 
 public class Main{
     public static void main(String[] args) throws IOException{
-        FileReader fw = new FileReader("rpgsave.dat");
-        System.out.println("すべてのデータを読んで表示します");
-        int i = fw.read();//1文字読み込んでるけど、なに入ってるかわからない
-        //これ以上読み込める値がないと-1になる
-        while(i != -1){
-            char c = (char) i;
-            System.out.println(c);
-            i = fw.read();
+        try(FileWriter fw = new FileWriter("rpgsave.dat");){
+            fw.write('A');
+            fw.flush();  //実際に動作を実行するflushを忘れない
+        }catch(IOException e){
+            System.out.println("書き込みエラー");
         }
-        System.out.println("ファイルの末尾に到達しました");
-        fw.close();
     }
 }
