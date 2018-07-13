@@ -1,5 +1,4 @@
 import java.sql.*;
-    
     //STEP 0 : 事前準備(JARの配置を含む)
     try {
         //これとgetConnectionでDBに接続できるようになる
