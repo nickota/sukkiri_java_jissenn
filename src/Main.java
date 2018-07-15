@@ -1,10 +1,6 @@
-PreparedStatement pstmt = conn.prepareStatement("DELETE FROM MONSTERS WHERE HP~~");
-
-pstmt.setInt(1, 10);
-pstmt.setString(2, "ゾンビ");
-int r = pstmt.executeUpdate();
-
-if(r != 0){
-    System.out.println(~~);
-}
+Preparedstatement pstmt = con.prepareStatement("DELETE FROM ~");
+pstmt.setString(1, "すずめ");
+pstmt.executeUpdate();
+pstmt.setString(1,"わし");
+pstmt.executeUpdate();
 pstmt.close();
