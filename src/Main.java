@@ -1,22 +1,11 @@
-public class Item {
-    private String name;
-    private int price;
-    private int weight;
-    
-    public String getName(){
-        return this.name;
-    }
-    public int getPrice(){
-        return this.price;
-    }
-    public int getWeight(){
-        return this.weight;
-    }
-    
-    public setName(String name){
-        this.name = name;
-    }
-    public setPrice(){
-        ・・・
+import java.util.*;
+
+public class Main{
+    public static void main(String[] args){
+        System.out.println("1円以上のアイテム一覧表の表示");
+        ArrayList<Item> items = ItemsDAO.findByMinimunPrice(1);
+        for(Item item : items){
+            System.out.printf("%10s%4d%4d",item.getName(), item.getPrice(), item.getWeight());
+        }
     }
 }
