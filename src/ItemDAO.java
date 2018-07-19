@@ -1,3 +1,7 @@
+import java.util.*;
+import java.io.*;
+import java.sql.*;
+
 public class ItemDAO{
     public static ArrayList<Item> findByMinimunPrice(int i){
         try {
@@ -5,11 +9,11 @@ public class ItemDAO{
         }catch(ClassNotFoundException e){
             e.printStackTrace();
         }
-        Connection conn = null;
+        Connection conn = null;  //初期化みたいなもの
         try{
-            conn = DataManager.getConnection("jdbc:h2:~/rpgdb");
-            PreparedStatement pstmnt = conn.prepareStatement
-                (SELECT * FROM ITEMS WHERE PRICE > ?);
+            conn = DriverManager.getConnection("jdbc:h2:~/rpgdb");
+            PreparedStatement pstmt = conn.prepareStatement
+                ("SELECT * FROM ITEMS WHERE PRICE > ?");
             pstmt.setInt(1, i);
             //SQLの実行
             ResultSet rs = pstmt.executeQuery();
@@ -24,8 +28,19 @@ public class ItemDAO{
                 items.add(item);
             }
             rs.close();
-            pstmnt.close();
+            pstmt.close();
             return items;
+        }catch(SQLException e){
+            e.printStackTrace();
+            return null;
+        }finally{
+            if(conn != null){
+                try{
+                    conn.close();
+                }catch(SQLException e){
+                    e.printStackTrace();
+                }
+            }
         }
     }
 }
