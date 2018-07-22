@@ -1,11 +1,12 @@
-import java.util.*;
+package jp.miyabilink.atm;
 
-public class Main{
-    public static void main(String[] args){
-        System.out.println("1円以上のアイテム一覧表の表示");
-        ArrayList<Item> items = ItemDAO.findByMinimunPrice(1);
-        for(Item item : items){
-            System.out.printf("%10s%4d%4d",item.getName(), item.getPrice(), item.getWeight());
-        }
+@SuppressWarnings("serial")
+public class NewAccount extends Account{
+    @Override
+    public int transfer(Bank bank, Account dest, int ammount){
+        
     }
-}
+    @Deprecated
+    public void transfer(Account dest, int amount){
+    
+    }
