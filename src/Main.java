@@ -1,12 +1,12 @@
 package jp.miyabilink.atm;
 
-@SuppressWarnings("serial")
-public class NewAccount extends Account{
-    @Override
-    public int transfer(Bank bank, Account dest, int ammount){
-        
-    }
-    @Deprecated
-    public void transfer(Account dest, int amount){
+public class Bank{
+    String name;
+    String address;
     
+    public void addAccount(String owner, int initialBalance){
+        public static void main (String[] args){
+            System.out.println("試験用メインメソッド");
+        }
     }
+}
