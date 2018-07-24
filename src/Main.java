@@ -1,12 +1,13 @@
-package jp.miyabilink.atm;
-
-public class Bank{
-    String name;
-    String address;
+public class AccountTest{
     
-    public void addAccount(String owner, int initialBalance){
-        public static void main (String[] args){
-            System.out.println("試験用メインメソッド");
-        }
+    public static void main(String[] args){
+        testInstantiate(); //一つ目のテスト
+        testTransfer();　//一つ目のテスト
+    }
+    
+    //実際にAccountをnewして使うテスト
+    public static void testInstantiate(){
+        System.out.println("無事newできるかのテスト");
+        Account a = new Account("ミナト",30000);
     }
 }
